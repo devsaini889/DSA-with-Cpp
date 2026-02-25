@@ -69,6 +69,15 @@ int largestRowSum(int arr[][3], int row, int col) {
     cout << "the maximum sum is " << maxi << endl;
     return rowIndex;
 }
+// Transpose of a matrix -> interchanging rows and columns
+void transpose(int arr[][3], int row, int col) {
+    for(int i=0; i<row; i++) {
+        for(int j=i; j<col; j++) {
+            swap(arr[i][j], arr[j][i]);
+        }
+    }
+}
+
 
 int main() {
 
@@ -96,14 +105,14 @@ int main() {
 
 */
 
-    cout << "Printing the array " << endl;
-    //print 
-    for(int row=0; row<3; row++) {
-        for(int col=0; col<3; col++) {
-            cout << arr[row][col] << " ";
-        }
-        cout << endl;
-    }
+    // cout << "Printing the array " << endl;
+    // //print 
+    // for(int row=0; row<3; row++) {
+    //     for(int col=0; col<3; col++) {
+    //         cout << arr[row][col] << " ";
+    //     }
+    //     cout << endl;
+    // }
 /*
     cout <<" Enter the element to search " << endl;
     int target;
@@ -118,8 +127,17 @@ int main() {
 
     printColSum(arr, 3, 3 );
     */
-   int ansIndex = largestRowSum(arr,3,3);
-   cout << " Max row is at index " << ansIndex << endl;
+//    int ansIndex = largestRowSum(arr,3,3);
+//    cout << " Max row is at index " << ansIndex << endl;
+
+   transpose(arr, 3, 3);
+   cout << "Transpose of matrix is: " << endl;
+   for(int row=0; row<3; row++) {
+        for(int col=0; col<3; col++) {
+            cout << arr[row][col] << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
